@@ -14,7 +14,6 @@ class Comment < ApplicationRecord
   Comment.create(post: first_post, user: second_user, text: 'I love your post')
   Comment.create(post: first_post, user: first_user, text: 'You look great!')
 
-
   # A method that updates the comments counter for a post.
   def self.update_comment_counter(post_id)
     post = Post.find(post_id)
