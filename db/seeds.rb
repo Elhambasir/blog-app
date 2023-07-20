@@ -5,3 +5,28 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Comment.create(post: first_post, author: second_user, text: 'Hi Tom!')
+Comment.create(post: first_post, author: second_user, text: 'Your post is nice!')
+Comment.create(post: first_post, author: first_user, text: 'Perfect')
+Comment.create(post: first_post, author: first_user, text: 'I liked your post')
+Comment.create(post: first_post, author: second_user, text: 'I love your post')
+Comment.create(post: first_post, author: first_user, text: 'You look great!')
+
+
+first_user = User.find(1)
+second_user = User.find(2)
+
+first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my first post')
+second_post = Post.create(author: first_user, title: 'Hello', text: 'This is my second post')
+third_post = Post.create(author: first_user, title: 'Hello', text: 'This is my third post')
+fourth_post = Post.create(author: first_user, title: 'Hello', text: 'This is my fourth post')
+
+first_post = Post.find(3)
+second_post = Post.find(4)
+third_post = Post.find(5)
+fourth_post = Post.find(6)
+
+User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+            bio: 'Teacher from Poland.')
