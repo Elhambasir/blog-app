@@ -21,25 +21,25 @@ RSpec.describe 'Posts', type: :request do
 
     it 'includes the correct placeholder text' do
       get "/users/#{@user.id}/posts/"
-      expect(response.body).to include('Here are list of all posts for given user')
+      expect(response.body).to include('Number of posts:')
     end
   end
 
   context 'GET /show' do
     it 'returns http success' do
-      get "/users/#{@user.id}/posts/show"
+      get "/users/#{@user.id}/posts/#{@post.id}/"
       expect(response).to have_http_status(:success)
       expect(response.status).to eq(200)
     end
 
     it 'render the show template' do
-      get "/users/#{@user.id}/posts/show"
+      get "/users/#{@user.id}/posts/#{@post.id}/"
       expect(response).to render_template('posts/show')
     end
 
     it 'includes the correct placeholder text' do
-      get "/users/#{@user.id}/posts/show"
-      expect(response.body).to include('list a post for given user id and given post id')
+      get "/users/#{@user.id}/posts/#{@post.id}/"
+      expect(response.body).to include('Comments:')
     end
   end
 
