@@ -1,1 +1,41 @@
-<h1>List user by id<h1>
+<div class="container border">
+  <div class="row">
+    <div class="col-md-4 p-3" >
+      <div class="img-cover text-center ">
+        <img src="<%= @user.photo%>" alt="not found" width="180">
+      </div>
+    </div>
+    <div class="col-md-8 p-3" >
+      <div class="border p-4"><h3><%= @user.name%></h3>
+      <h6 class="pull-right text-right">Number of post: <%= @user.posts_counter%></h6></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="border p-2">
+        <h4>Bio</h4>
+        <p>
+          <%= @user.bio%>
+        </p>
+      </div>
+    </div>
+  </div>
+  <% @user.posts.each_with_index do |post,index|%>
+    <div class="row mt-1 mb-1">
+      <div class="col-md-12">
+        <div class="border p-2">
+          <h4><%= link_to "#{post.title}", user_posts_path(post) %></h4>
+          <p>
+            <%= post.text%>
+          </p>
+          <p class="text-right m-0"><small>Comments: <%=post.comments_counter%></small>,<small>Likes: <%=post.likes_counter%></small></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-12 text-center m-1">
+      <button class="btn btn-secandary">See more posts</button>
+    </div>
+  </div>
+</div>
