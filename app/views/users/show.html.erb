@@ -20,11 +20,11 @@
       </div>
     </div>
   </div>
-  <% @user.posts.each_with_index do |post,index|%>
+  <% @user.recent_posts.each_with_index do |post,index|%>
     <div class="row mt-1 mb-1">
       <div class="col-md-12">
         <div class="border p-2">
-          <h4><%= link_to "#{post.title}", user_posts_path(post) %></h4>
+          <h4><%= link_to "#{post.title}", user_posts_path(user_id:post.author_id) %></h4>
           <p>
             <%= post.text%>
           </p>
@@ -35,7 +35,7 @@
   <% end %>
   <div class="row">
     <div class="col-md-12 text-center m-1">
-      <button class="btn btn-secandary">See more posts</button>
+      <button class="btn btn-secandary"><%= link_to "See more posts", user_posts_path(user_id:@user.id) %></button>
     </div>
   </div>
 </div>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/users/:user_id/posts/new', to: 'posts#new'
   post '/users/:user_id/posts/:post_id/comments/new', to: 'comments#new'
   post '/users/:user_id/posts/:post_id/comments/edit/:comment_id', to: 'comments#edit'
+  root to: "users#index"
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :show] do
       resources :comments, only: [:index, :show]
