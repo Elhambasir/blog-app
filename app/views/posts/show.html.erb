@@ -1,1 +1,23 @@
-<h1>list a post for given user id and given post id</h1>
+<div class="container border">
+   <div class="row mt-1 mb-1">
+    <div class="col-md-12">
+      <div class="border p-2">
+        <div class="d-flex justify-content-between"><h4 class="m-1"><%=@post.title%></h4>
+          <p class="text-right m-1"><small>Comments: <%=@post.comments_counter%></small>,<small>Likes: <%=@post.likes_counter%></small></p>
+        </div>
+        <p>
+          <%= @post.text%>
+        </p>
+      </div>
+    </div>
+  </div>
+   <div class="row">
+    <div class="col-md-12">
+      <div class="border pl-1">
+        <% @post.comments.each do |comment|%>
+          <p class="text-left m-0"><small><%=comment.author.name%></small> : <small><%=comment.text%></small></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
