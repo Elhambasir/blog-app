@@ -1,12 +1,11 @@
 class PostsController < ApplicationController
-  
   before_action :find_user, only: %i[index show new edit create]
   def index
     @posts = @user.posts.order(created_at: :asc)
   end
 
   def show
-    @post =  @user.posts.find(params[:id])
+    @post = @user.posts.find(params[:id])
   end
 
   def new
@@ -28,7 +27,7 @@ class PostsController < ApplicationController
   end
 
   private
-  
+
   def find_user
     # @user = User.find(params[:user_id])
     @user = User.includes(:posts, posts: [:comments, { comments: [:author] }]).find(params[:user_id])
@@ -37,5 +36,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :text, :comments_counter, :likes_counter)
   end
-  
 end

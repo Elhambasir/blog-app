@@ -12,5 +12,4 @@ class LikesController < ApplicationController
     @like.destroy
     redirect_to user_post_path(user_id: params[:user_id], id: params[:post_id])
   end
-
 end

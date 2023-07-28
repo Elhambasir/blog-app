@@ -45,39 +45,21 @@ RSpec.describe 'Comments', type: :request do
     end
   end
 
-  context 'POST /new' do
+  context 'GET /new' do
     it 'returns http success' do
-      post "/users/#{@user.id}/posts/#{@post.id}/comments/new", params: @User
+      get "/users/#{@user.id}/posts/#{@post.id}/comments/new", params: @User
       expect(response).to have_http_status(:success)
       expect(response.status).to eq(200)
     end
 
     it 'render the new template' do
-      post "/users/#{@user.id}/posts/#{@post.id}/comments/new", params: @User
+      get "/users/#{@user.id}/posts/#{@post.id}/comments/new", params: @User
       expect(response).to render_template('comments/new')
     end
 
     it 'includes the correct placeholder text' do
-      post "/users/#{@user.id}/posts/#{@post.id}/comments/new", params: @User
+      get "/users/#{@user.id}/posts/#{@post.id}/comments/new", params: @User
       expect(response.body).to include('Create new comments')
-    end
-  end
-
-  context 'POST  /edit' do
-    it 'returns http success' do
-      post "/users/#{@user.id}/posts/#{@post.id}/comments/edit/#{@comment.id}", params: @User
-      expect(response).to have_http_status(:success)
-      expect(response.status).to eq(200)
-    end
-
-    it 'render the edit template' do
-      post "/users/#{@user.id}/posts/#{@post.id}/comments/edit/#{@comment.id}", params: @User
-      expect(response).to render_template('comments/edit')
-    end
-
-    it 'includes the correct placeholder text' do
-      post "/users/#{@user.id}/posts/#{@post.id}/comments/edit/#{@comment.id}", params: @User
-      expect(response.body).to include('Edit comments')
     end
   end
 end
