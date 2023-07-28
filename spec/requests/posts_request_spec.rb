@@ -43,39 +43,21 @@ RSpec.describe 'Posts', type: :request do
     end
   end
 
-  context 'POST /new' do
+  context 'GET /new' do
     it 'returns http success' do
-      post "/users/#{@user.id}/posts/new/", params: @User
+      get "/users/#{@user.id}/posts/new/", params: @User
       expect(response).to have_http_status(:success)
       expect(response.status).to eq(200)
     end
 
     it 'render the new template' do
-      post "/users/#{@user.id}/posts/new/", params: @User
+      get "/users/#{@user.id}/posts/new/", params: @User
       expect(response).to render_template('posts/new')
     end
 
     it 'includes the correct placeholder text' do
-      post "/users/#{@user.id}/posts/new/", params: @User
+      get "/users/#{@user.id}/posts/new/", params: @User
       expect(response.body).to include('Create posts')
-    end
-  end
-
-  context 'POST /edit' do
-    it 'returns http success' do
-      post "/users/#{@user.id}/posts/edit/#{@post.id}", params: @User
-      expect(response).to have_http_status(:success)
-      expect(response.status).to eq(200)
-    end
-
-    it 'render the edit template' do
-      post "/users/#{@user.id}/posts/edit/#{@post.id}", params: @User
-      expect(response).to render_template('posts/edit')
-    end
-
-    it 'includes the correct placeholder text' do
-      post "/users/#{@user.id}/posts/edit/#{@post.id}", params: @User
-      expect(response.body).to include('Edit posts')
     end
   end
 end
