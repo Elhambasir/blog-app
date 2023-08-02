@@ -27,7 +27,6 @@
 
 # 📖 [Blog App] <a name="is app for blog creating posts, likes and comments in rails framework"></a>
 
-
 **[Blog App]** is based on Ruby Language and Rails framework.
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -67,10 +66,10 @@ To get a local copy up and running, follow these steps.
 
 - clone this https://github.com/Elhambasir/blog-app.git
 
-
 ### Prerequisites
 
 In order to run this project you need:
+
 <ul>
     <li><a href="https://www.ruby-lang.org/en/">Ruby and Ruby on Rails</a></li>
   </ul>
@@ -78,6 +77,7 @@ In order to run this project you need:
 ### Setup
 
 Clone this repository to your desired folder:
+
 <ul>
 <li>cd my-folder</li>
 <li>git clone https://github.com/Elhambasir/blog-app.git</li>
@@ -86,6 +86,7 @@ Clone this repository to your desired folder:
 ### Install
 
 Install this project with:
+
 <ul>
 <li>bundle install</li>
 </ul>
@@ -93,6 +94,7 @@ Install this project with:
 ### Usage
 
 To run the project, execute the following command:
+
 <ul>
 <li>rails s</li>
 </ul>
@@ -101,12 +103,11 @@ To run the project, execute the following command:
 
 To run tests, run the following command: Install through : gem install rspec
 
-Run: ***Not Available for now***
+Run: **_Not Available for now_**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 👥 Author <a name="author"></a>
-
 
 👤 **Basir Elham**
 
@@ -114,15 +115,19 @@ Run: ***Not Available for now***
 - Email: [Basir Elham](elham1378basir@gmail.com)
 - LinkedIn: [@basir-ahmadi-8aba89263](https://www.linkedin.com/in/basir-ahmadi-8aba89263)
 
+👤 **James Serengia**
+
+- GitHub: [@serengia](https://github.com/serengia)
+- Twitter: [@jamesserengia](https://twitter.com/jamesserengia)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/james-serengia)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-
 - [ ] **[Data connections, Adding Validations, Creating Full Blog page App]**
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -130,7 +135,7 @@ Run: ***Not Available for now***
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [repo](https://github.com/Elhambasir/blog-app.git) 
+Feel free to check the [repo](https://github.com/Elhambasir/blog-app.git)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -152,7 +157,6 @@ I would like to thank Microverse and my Code Reviewers.
 - **[What is Blog App?]**
 
   - [In this project, we will creating posts, and adding likes and comments in rails framework]
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
