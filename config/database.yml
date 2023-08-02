@@ -23,16 +23,16 @@ default: &default
 
 development:
   adapter: postgresql
-  database: blog_app_development
-  host: 127.0.0.1
+  host: localhost
   username: postgres
   password: elham@123
+  database: blog_app_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: blog_app
+  #username: firstRailsApp
 
   # The password associated with the postgres role (username).
   #password:
@@ -61,9 +61,10 @@ development:
 test:
   <<: *default
   adapter: postgresql
-  database: blog_app_test
   username: postgres
+  host: localhost
   password: elham@123
+  database: blog_app_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
