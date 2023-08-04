@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :find_user, only: %i[index show new edit create]
   def index
-    @posts = @user.posts.order(created_at: :asc)
+    @posts = @user.posts.includes(:comments).order(created_at: :asc)
   end
 
   def show
