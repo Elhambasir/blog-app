@@ -7,11 +7,11 @@
     <div class="navbar-nav">
         <% if user_signed_in? %>
           <%= link_to "Home", users_path, class:"nav-item nav-link" %>
-          <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class:"nav-link bg-dark border-0" %>
           <%= link_to "Edit Profile", edit_user_registration_path, class:"nav-item nav-link" %>
+          <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class:"nav-link bg-dark border-0" %>
         <% else %>
-          <%= link_to "Sign Up", new_user_registration_path, class:"nav-item nav-link" %>
           <%= link_to "Sign In", new_user_session_path, class:"nav-item nav-link" %>
+          <%= link_to "Sign Up", new_user_registration_path, class:"nav-item nav-link" %>
         <% end %>
     </div>
   </div>
