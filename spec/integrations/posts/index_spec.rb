@@ -17,7 +17,7 @@ RSpec.describe 'Post Index', type: :system do
       visit(user_posts_path(@user.id))
     end
     it "shows user's profile picture" do
-      expect(page).to have_css('img[src*="https://media.istockphoto.com/id/1406197730/photo/portrait-of-a-young-handsome-indian-man.webp?b=1&s=170667a&w=0&k=20&c=KtmKHyOE6MJV0w2DiGX8P4399KHNbZ3p8lCjTEabGcY="]')
+      expect(page.has_xpath?("//img[@src='https://media.istockphoto.com/id/1406197730/photo/portrait-of-a-young-handsome-indian-man.webp?b=1&s=170667a&w=0&k=20&c=KtmKHyOE6MJV0w2DiGX8P4399KHNbZ3p8lCjTEabGcY=']"))
     end
 
     it 'shows the users username' do
