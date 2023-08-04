@@ -114,6 +114,12 @@ Run: ***Not Available for now***
 - Email: [Basir Elham](elham1378basir@gmail.com)
 - LinkedIn: [@basir-ahmadi-8aba89263](https://www.linkedin.com/in/basir-ahmadi-8aba89263)
 
+👤 **James Serengia**
+
+- GitHub: [@serengia](https://github.com/serengia)
+- Twitter: [@jamesserengia](https://twitter.com/jamesserengia)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/james-serengia)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
