@@ -5,9 +5,10 @@ RSpec.describe 'User Show Page', type: :system do
     @user = User.create(name: 'Doraemon & Nobita',
                         photo: 'https://media.istockphoto.com/id/1406197730/photo/portrait-of-a-young-handsome-indian-man.webp?b=1&s=170667a&w=0&k=20&c=KtmKHyOE6MJV0w2DiGX8P4399KHNbZ3p8lCjTEabGcY=',
                         bio: 'Best friends', posts_counter: 0)
-    @user.posts.create(title: 'Post 1', text: 'This is the first post.', comments_counter: 0, likes_counter: 0)
-    @user.posts.create(title: 'Post 2', text: 'This is the second post.', comments_counter: 0, likes_counter: 0)
-    @user.posts.create(title: 'Post 3', text: 'This is the third post.', comments_counter: 0, likes_counter: 0)
+    @post1 = @user.posts.create(title: 'Post 1', text: 'This is the first post.', comments_counter: 0, likes_counter: 0)
+    @post2 = @user.posts.create(title: 'Post 2', text: 'This is the second post.', comments_counter: 0,
+                                likes_counter: 0)
+    @post3 = @user.posts.create(title: 'Post 3', text: 'This is the third post.', comments_counter: 0, likes_counter: 0)
   end
 
   describe 'User show page' do
@@ -42,12 +43,6 @@ RSpec.describe 'User Show Page', type: :system do
       end
     end
 
-    it 'redirects to open a post of a user' do
-      @user.recent_posts.each do |post|
-        expect(page).to have_link(post.title, href: user_post_path(user_id: @user.id, id: post.id))
-      end
-    end
-
     it 'has a button to view all user posts' do
       expect(page).to have_link('See more posts', href: user_posts_path(user_id: @user.id))
     end
@@ -55,6 +50,11 @@ RSpec.describe 'User Show Page', type: :system do
     it 'redirects to open all posts of a user' do
       click_link('See more posts')
       expect(page).to have_current_path(user_posts_path(@user))
+    end
+
+    it 'redirects to open a post of a user' do
+      click_link('Post 1')
+      expect(page).to have_current_path(user_post_path(user_id: @post1.author_id, id: @post1.id))
     end
   end
 end
