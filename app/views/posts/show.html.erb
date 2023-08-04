@@ -18,7 +18,7 @@
    <div class="row">
     <div class="col-md-12">
       <div class="border pl-1">
-        <% @post.comments.includes(:author).each do |comment| %>
+        <% @post.comments.each do |comment| %>
           <p class="text-left m-0"><small><%= comment.author.name %></small> : <small><%= comment.text %></small></p>
         <% end %>
       </div>
