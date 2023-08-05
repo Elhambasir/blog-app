@@ -37,4 +37,15 @@ class PostsController < ApplicationController
       render :show, status: 400
     end
   end
+
+  private
+
+  def find_user
+    # @user = User.find(params[:user_id])
+    @user = User.includes(:posts, posts: [:comments, { comments: [:author] }]).find(params[:user_id])
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :text, :comments_counter, :likes_counter)
+  end
 end
