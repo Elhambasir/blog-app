@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   before_action :find_user, only: %i[index show new edit create]
   def index
     @posts = @user.posts.includes(:comments).order(created_at: :asc)
@@ -26,14 +27,14 @@ class PostsController < ApplicationController
     end
   end
 
-  private
+  def destroy
+    @post = Post.find(params[:id])
 
-  def find_user
-    # @user = User.find(params[:user_id])
-    @user = User.includes(:posts, posts: [:comments, { comments: [:author] }]).find(params[:user_id])
-  end
-
-  def post_params
-    params.require(:post).permit(:title, :text, :comments_counter, :likes_counter)
+    if @post.destroy
+      redirect_to user_posts_path(current_user), notice: 'Post deleted successfully'
+    else
+      flash.new[:alert] = @post.errors.full_messages.first if @post.errors.any?
+      render :show, status: 400
+    end
   end
 end

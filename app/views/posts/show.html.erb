@@ -4,14 +4,19 @@
       <div class="border p-2">
       <div class="btn_container">
       </div>
-        <%= render partial: "shared/like", locals: { like: Like.new, post_id: @post.id, user_id: @post.author.id } %>
-        <%= button_to "Comment", new_user_post_comment_path(user_id: @post.author.id, post_id: @post.id), method: :get, class: "add_comment" %>
+        <% if can? :create, @post %>
+          <%= render partial: "shared/like", locals: { like: Like.new, post_id: @post.id, user_id: @post.author.id } %>
+          <%= button_to "Comment", new_user_post_comment_path(user_id: @post.author.id, post_id: @post.id), method: :get, class: "add_comment" %>
+        <% end %>
         <div class="d-flex justify-content-between"><h4 class="m-1"><%= @post.title %></h4>
           <p class="text-right m-1 bg-primary"><small>Comments:<%=@post.comments_counter %></small>,<small>Likes:<%=@post.likes_counter %></small></p>
         </div>
         <p>
           <%= @post.text %>
         </p>
+        <% if can? :delete, @post %>
+          <%= button_to "Delete", @resource,form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete%>
+        <% end %>
       </div>
     </div>
   </div>
@@ -20,6 +25,9 @@
       <div class="border pl-1">
         <% @post.comments.each do |comment| %>
           <p class="text-left m-0"><small><%= comment.author.name %></small> : <small><%= comment.text %></small></p>
+          <% if can? :delete, @post %>
+          <%= button_to 'Delete comment', user_post_comment_path(current_user, @post, comment), method: :delete, class: 'delete-btn' %>
+          <% end %>
         <% end %>
       </div>
     </div>
