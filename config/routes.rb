@@ -12,4 +12,10 @@ Rails.application.routes.draw do
       resources :likes, only: [:create]
     end
   end
+
+ get '/api/users', to: 'api_users#index'
+ get "/api/users/:id", to: "api_users#show"
+ get '/api/users/:user_id/posts', to: 'api_posts#index'
+ get '/api/users/:user_id/posts/:post_id/comments', to: 'api_comments#index'
+ post '/api/users/:user_id/posts/:post_id/comments', to: 'api_comments#create'
 end
